@@ -5,6 +5,7 @@
     border-radius: 10px;
     text-align: center;
     height: fit-content;
+
     /* padding-top: 10px;
     margin-left: 10px; */
     /* display: flex;
@@ -33,10 +34,19 @@
     border-top-right-radius: 10px;
     border-bottom: 0.1px solid lightgray;
 }
+.sidebar_top > h4{
+    color:gray;
+    font-size: 12px;
+}
+.sidebar_top > h2{
+    font-size: 18px;
+
+}
 .sidebar_stat{
     margin-top: 10px;
     display:flex;
     justify-content: space-between;
+    
 }
 .sidebar_stat > p {
     color:gray;
