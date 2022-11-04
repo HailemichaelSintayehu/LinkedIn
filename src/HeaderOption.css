@@ -9,11 +9,13 @@
 }
 .headerOption:hover{
     color:black;
-    
-}
-.headerOption_icon{
 
 }
+.headerOption_icon{
+    /* font-size: x-large; */
+}
 .headerOption_title{
+    font-size: 12px;
+    font-weight: 400;
 
 }
