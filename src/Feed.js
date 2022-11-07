@@ -3,9 +3,11 @@ import CreateIcon from "@mui/icons-material/Create";
 import "./Feed.css";
 import InputOption from "./InputOption";
 import ImageIcon from "@mui/icons-material/Image";
-import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
-import EventIcon from '@mui/icons-material/Event';
-import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
+import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
+import EventIcon from "@mui/icons-material/Event";
+import CalendarViewDayIcon from "@mui/icons-material/CalendarViewDay";
+import { Avatar } from "@mui/material";
+import Post from "./Post";
 function Feed() {
   return (
     <div className="feed">
@@ -18,24 +20,20 @@ function Feed() {
           </form>
         </div>
         <div className="feed_inputOptions">
-        <InputOption 
-          Icon={ImageIcon} 
-          title="Photo" 
-          color="#7085F9" />
-        <InputOption 
-          Icon={SubscriptionsIcon} 
-          title="Video" 
-          color="#E7A33E" />
+          <InputOption Icon={ImageIcon} title="Photo" color="#7085F9" />
+          <InputOption Icon={SubscriptionsIcon} title="Video" color="#E7A33E" />
+          <InputOption Icon={EventIcon} title="Event" color="#CBCBCD" />
           <InputOption
-          Icon={EventIcon} 
-          title="Event" 
-          color="#CBCBCD" />
-        <InputOption 
-          Icon={CalendarViewDayIcon} 
-          title="Write Article" 
-          color="#7FC15E" />
+            Icon={CalendarViewDayIcon}
+            title="Write Article"
+            color="#7FC15E"
+          />
         </div>
       </div>
+		<Post name = "Hailemichael Sintayehu" 
+		description = "This is a test" 
+		message = "it worked"/>
+      
     </div>
   );
 }
