@@ -97,3 +97,12 @@
     margin-left: 5px;
 
 }
+.sidebar_discover{
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+}
+.sidebar_discover:hover{
+    background-color: whitesmoke;
+    padding-top: 5px;
+}

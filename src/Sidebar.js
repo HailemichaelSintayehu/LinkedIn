@@ -44,7 +44,12 @@ function Sidebar() {
         {recentItem('software enginneering')}
         {recentItem('design')}
         {recentItem('developer')}
+
+        <p className = "sidebar_discover">Discover more</p>
       </div>
+    
+
+      
     </div>
   );
 }
