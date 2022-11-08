@@ -3,6 +3,7 @@ import "./Login.css";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name,setName] = useState("")
 
   const register = (e) => {};
   const loginToApp = (e) => {
@@ -15,15 +16,21 @@ function Login() {
         alt=""
       />
       <form>
-        <input placeholder="Full name" type="text" />
+        <input
+         value = {name}
+         onChange = {(e) =>setName(e.target.value)}
+         placeholder="Full name"
+         type="text" />
 
         <input
+          value={email}
           onChange={setEmail((e) => e.target.value)}
           type="email"
           placeholder="Email"
         />
 
         <input
+          value = { password }
           onChange={setPassword((e) => e.target.value)}
           type="password"
           placeholder="Password"
