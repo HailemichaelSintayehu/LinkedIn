@@ -1,14 +1,44 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "./features/userSlice";
 import "./Login.css";
+import { auth } from './firebase';
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name,setName] = useState("")
+  const [profilePic,setProfile] = useState("")
+  const dispatch = useDispatch();
 
-  const register = (e) => {};
+  const register = () => {
+    if(!name){
+        alert("please insert your Full name")
+    }
+    auth.createUserWithEmailAndPassword(email,password)
+    .then((userAuth) => {
+        userAuth.user.updateProfile({
+            displayName:name,
+            photoURL:profilePic,
+        })
+        .then(()=> {
+            dispatch(login({
+                email:userAuth.user.email,
+                uid:userAuth.user.uid,
+                displayName:name,
+                photoURL:profilePic
+                
+            }))
+        })
+  }).catch((error) =>{
+    alert(error.message)
+  })
+  }
+
+
   const loginToApp = (e) => {
     e.preventDefault();
   };
+
   return (
     <div className="login">
       <img
@@ -19,19 +49,26 @@ function Login() {
         <input
          value = {name}
          onChange = {(e) =>setName(e.target.value)}
-         placeholder="Full name"
+         placeholder="Full name (required if registering"
          type="text" />
+        
+        <input 
+        value = {profilePic}
+        onChange = {(e) =>setProfile(e.target.value)}
+        placeholder = "Profile pic URL (optional)"
+        type = "text" 
+        />
 
         <input
           value={email}
-          onChange={setEmail((e) => e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           type="email"
           placeholder="Email"
         />
 
         <input
           value = { password }
-          onChange={setPassword((e) => e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           type="password"
           placeholder="Password"
         />
