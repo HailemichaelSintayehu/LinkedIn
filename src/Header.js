@@ -41,7 +41,7 @@ function Header() {
             <HeaderOption Icon = {ChatIcon} title = "Messaging"/>
             <HeaderOption Icon = {NotificationsIcon}  title= "Notifications"/>
             <HeaderOption 
-            avatar = {user.photoURL}
+            avatar = {true}
             title = "me"
             onClick={logoutOfApp}/>
             {/* <HeaderOption Icon = {AppsIcon} title = "Work"/> */}
