@@ -3,7 +3,7 @@
     top:0;
     justify-content: space-evenly;
     border-bottom: 0.1px solid lightgray;
-
+    position:fixed;
     padding-top: 10px;
     padding-bottom: 10px;
     width: 100%;
