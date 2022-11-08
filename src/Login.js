@@ -3,12 +3,31 @@ import { useDispatch } from "react-redux";
 import { login } from "./features/userSlice";
 import "./Login.css";
 import { auth } from './firebase';
+import { EarbudsBatterySharp } from "@mui/icons-material";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name,setName] = useState("")
   const [profilePic,setProfile] = useState("")
   const dispatch = useDispatch();
+
+
+  const loginToApp = (e) => {
+    auth.signInWithEmailAndPassword(email,password)
+    .then((userAuth) =>{
+        dispatch(login({
+            email:userAuth.user.email,
+            uid:userAuth.user.uid,
+            displayName:userAuth.user.name,
+            photoURL:userAuth.user.profilePic
+
+        }))
+    })
+    .catch((error) =>{
+        alert(error);
+    })
+  };
+
 
   const register = () => {
     if(!name){
@@ -24,8 +43,8 @@ function Login() {
             dispatch(login({
                 email:userAuth.user.email,
                 uid:userAuth.user.uid,
-                displayName:name,
-                photoURL:profilePic
+                displayName:userAuth.user.name,
+                photoURL:userAuth.user.profilePic
                 
             }))
         })
@@ -33,11 +52,6 @@ function Login() {
     alert(error.message)
   })
   }
-
-
-  const loginToApp = (e) => {
-    e.preventDefault();
-  };
 
   return (
     <div className="login">
