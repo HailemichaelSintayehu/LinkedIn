@@ -8,11 +8,11 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ChatIcon from '@mui/icons-material/Chat';
 import AppsIcon from '@mui/icons-material/Apps';
-import { useDispatch } from 'react-redux';
-import { logout } from './features/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectUser } from './features/userSlice';
 import { auth } from './firebase';
 function Header() {
-  
+  const user = useSelector(selectUser)
   const dispatch = useDispatch();
 
   const logoutOfApp = () =>{
@@ -41,7 +41,7 @@ function Header() {
             <HeaderOption Icon = {ChatIcon} title = "Messaging"/>
             <HeaderOption Icon = {NotificationsIcon}  title= "Notifications"/>
             <HeaderOption 
-            avatar = "https://media.licdn.com/dms/image/C4D03AQFs0CYIxI9lWQ/profile-displayphoto-shrink_400_400/0/1663158014781?e=1672876800&v=beta&t=bNlioUidsuKVUvfJBX4kbinVFvw8AjLmQgWol7nK1ig"
+            avatar = {user.photoURL}
             title = "me"
             onClick={logoutOfApp}/>
             {/* <HeaderOption Icon = {AppsIcon} title = "Work"/> */}

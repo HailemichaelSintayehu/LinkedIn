@@ -13,13 +13,15 @@ function Login() {
 
 
   const loginToApp = (e) => {
+    e.preventDefault();
+
     auth.signInWithEmailAndPassword(email,password)
     .then((userAuth) =>{
         dispatch(login({
             email:userAuth.user.email,
             uid:userAuth.user.uid,
-            displayName:userAuth.user.name,
-            photoURL:userAuth.user.profilePic
+            displayName:userAuth.user.displayName,
+            photoURL:userAuth.user.photoURL
 
         }))
     })
