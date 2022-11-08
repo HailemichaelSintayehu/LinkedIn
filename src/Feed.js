@@ -12,6 +12,8 @@ import { db } from './firebase';
 import firebase from 'firebase/compat/app'
 import { useSelector } from "react-redux";
 import { selectUser } from "./features/userSlice";
+import FlipMove from 'react-flip-move';
+
 // import { serverTimestamp } from '@firebase/firestore'
 function Feed() {
 	const user = useSelector(selectUser)
@@ -34,7 +36,7 @@ function Feed() {
 		
 		db.collection('posts').add({
 			name:user.displayName,
-			description:user.email,
+			description:user.email, 
 			message: input,
 			photoUrl:user.photoURL || "",
 			timestamp:firebase.firestore.FieldValue.serverTimestamp() || null,
@@ -64,15 +66,18 @@ function Feed() {
           />
         </div>
       </div>
-	  {posts.map(({id,data:{name,description,message,photoUrl}})=>(
-		<Post 
-		key={id}
-		name = {name}
-		descripiton = {description}
-		message={message}
-		photoUrl = {photoUrl}/>
-	  ))}
+	  <FlipMove>
+			{posts.map(({id,data:{name,description,message,photoUrl}})=>(
+				<Post 
+				key={id}
+				name = {name}
+				descripiton = {description}
+				message={message}
+				photoUrl = {photoUrl}/>
+			))}
 		
+	  </FlipMove>
+
       
     </div>
   );
