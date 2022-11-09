@@ -1,4 +1,4 @@
-import { Widgets } from '@mui/icons-material';
+
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
@@ -8,6 +8,7 @@ import { auth } from './firebase';
 import Header from './Header';
 import Login from './Login';
 import Sidebar from './Sidebar';
+import Widgets from './Widgets';
 
 function App() {
   const user = useSelector(selectUser)
