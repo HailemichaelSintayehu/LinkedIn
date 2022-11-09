@@ -1,3 +1,4 @@
+import { Widgets } from '@mui/icons-material';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
@@ -37,6 +38,7 @@ function App() {
           <div className = "app_body">
                     <Sidebar/>
                     <Feed/>
+                    <Widgets/>
           </div>
         
         )}
